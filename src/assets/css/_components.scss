@@ -1,0 +1,88 @@
+/*  ========================================================================
+    # Components
+    ========================================================================  */
+
+.c-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: calc-rem(40px) calc-rem(20px);
+}
+
+/*  Countdown
+    ========================================================================  */
+
+.c-countdown {
+  display: flex;
+  margin: 0 calc-rem(-12px);
+
+  @include breakpoint(small) {
+    margin: 0 calc-rem(-20px);
+  }
+
+  .block {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 0 calc-rem(12px);
+    font-weight: 700;
+
+    @include breakpoint(small) {
+      margin: 0 calc-rem(20px);
+    }
+
+    .digit {
+      @include fluid-type($font-size__digit--min, $font-size__digit--max);
+    }
+
+    span {
+      @include fluid-type($font-size__text--small, $font-size__text);
+      margin: calc-rem(12px) 0 0;
+      color: $color__accent;
+    }
+  }
+}
+
+/*  Links
+    ========================================================================  */
+
+.c-links {
+  width: 100%;
+  margin: calc-rem(40px) 0 0;
+  text-align: center;
+
+  a {
+    @include transition__fade-out(0.25s, 0s);
+    position: relative;
+    margin: 0 calc-rem(20px);
+    font-size: $font-size__text--small;
+    letter-spacing: calc-rem(1px);
+    color: $color__grey;
+
+    &::after {
+      @include transition__fade-out(0.25s, 0s);
+      content: '';
+      position: absolute;
+      bottom: calc-rem(-12px);
+      left: 0;
+      right: 0;
+      height: calc-rem(2px);
+      background-color: $color__accent;
+      opacity: 0;
+    }
+
+    &:hover {
+      @include transition__fade-in(0.25s, 0s);
+      color: $color__white;
+
+      &::after {
+        @include transition__fade-in(0.25s, 0s);
+        bottom: calc-rem(-8px);
+        opacity: 1;
+      }
+    }
+  }
+}

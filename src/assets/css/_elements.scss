@@ -1,0 +1,29 @@
+/*  ========================================================================
+    # Elements
+    ========================================================================  */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size__text;
+  font-weight: 400;
+  color: $color__white;
+  background-color: $color__black;
+}
+
+::selection {
+  background-color: $color__accent;
+  color: $color__black;
+  text-shadow: none;
+}
+
+a {
+  text-decoration: none;
+  outline: 0;
+  cursor: pointer;
+}

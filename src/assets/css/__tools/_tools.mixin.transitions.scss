@@ -1,0 +1,10 @@
+/*  ========================================================================
+    # Tools - Mixin - Transitions
+    ========================================================================  */
+
+@mixin transition__fade-in($duration, $delay) {
+  transition: all $duration $ease__out--quad $delay;
+}
+@mixin transition__fade-out($duration, $delay) {
+  transition: all $duration $ease__in--quad $delay;
+}

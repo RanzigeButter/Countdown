@@ -1,0 +1,17 @@
+/*  ========================================================================
+    # Tools - Mixin - Fluid Type
+    ========================================================================  */
+
+@mixin fluid-type($font-size__min, $font-size__max) {
+  font-size: $font-size__min;
+
+  @include breakpoint(small) {
+    font-size:
+      calc(#{$font-size__min} + #{remove-unit($font-size__max - $font-size__min)} *
+      (100vw - #{$breakpoint__small}) / #{remove-unit($breakpoint__large - $breakpoint__small)});
+  }
+
+  @include breakpoint(large) {
+    font-size: $font-size__max;
+  }
+}

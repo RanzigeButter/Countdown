@@ -1,0 +1,15 @@
+/*  ========================================================================
+    # Tools - Mixin - Breakpoints
+    ========================================================================  */
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == small {
+    @media screen and (min-width: $breakpoint__small) {
+      @content;
+    }
+  } @else if $breakpoint == large {
+    @media screen and (min-width: $breakpoint__large) {
+      @content;
+    }
+  }
+}

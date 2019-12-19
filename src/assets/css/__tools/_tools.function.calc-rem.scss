@@ -1,0 +1,8 @@
+/*  ========================================================================
+    # Tools - Function - Calculate Rem
+    ========================================================================  */
+
+$font-size__base-value: 16;
+@function calc-rem($pixels) {
+  @return remove-unit($pixels) / $font-size__base-value * 1rem;
+}

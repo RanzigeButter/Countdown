@@ -1,0 +1,56 @@
+/*  ========================================================================
+    # Settings - Fonts
+    ========================================================================  */
+
+// Regular
+@font-face {
+  font-family: 'Noto Sans';
+  src:
+    url('../fonts/noto-sans--regular.woff2') format('woff2'),
+    url('../fonts/noto-sans--regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+// Italic
+@font-face {
+  font-family: 'Noto Sans';
+  src:
+    url('../fonts/noto-sans--italic.woff2') format('woff2'),
+    url('../fonts/noto-sans--italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+// 700
+@font-face {
+  font-family: 'Noto Sans';
+  src:
+    url('../fonts/noto-sans--700.woff2') format('woff2'),
+    url('../fonts/noto-sans--700.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+// 700 Italic
+@font-face {
+  font-family: 'Noto Sans';
+  src:
+    url('../fonts/noto-sans--700italic.woff2') format('woff2'),
+    url('../fonts/noto-sans--700italic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/*  Font Families
+    ========================================================================  */
+
+$font-family: 'Noto Sans', 'Helvetica', 'Arial', sans-serif;
+
+/*  Font Sizes
+    ========================================================================= */
+
+$font-size__digit--max: 5rem; // 80px
+$font-size__digit--min: 2.25rem; // 36px
+$font-size__text: 1.125rem; // 18px
+$font-size__text--small: 0.875rem; // 14px
