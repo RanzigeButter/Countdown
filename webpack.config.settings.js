@@ -58,6 +58,11 @@ module.exports = {
     {
       from: './src/system',
       to: '../dist'
+    },
+    // Favicons
+    {
+      from: './src/assets/images/favicon',
+      to: './assets/images/favicon'
     }
   ],
 

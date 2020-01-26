@@ -31,7 +31,12 @@ const Countdown = {
   },
 
   expired() {
-    //
+    /* eslint-disable */
+    console.log('The countdown has expired!');
+    setInterval(() => {
+      cornify_add();
+    }, 3000);
+    /* eslint-enable */
   },
 
   init() {
