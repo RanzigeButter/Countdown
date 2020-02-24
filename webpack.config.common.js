@@ -5,16 +5,18 @@
 /**
  * General used configuration.
  *
+ *
  * Table of Contents:
- * 1. Dependencies
- * 2. JavaScript
- * 3. Images
- * 4. Fonts
- * 5. Config Common
- * 6. Module Exports
+ *
+ * Dependencies
+ * JavaScript
+ * Images
+ * Fonts
+ * Config Common
+ * Module Exports
  */
 
-/*  1. Dependencies
+/*  Dependencies
     ========================================================================  */
 
 // Configs
@@ -26,16 +28,14 @@ const path = require('path');
 const merge = require('webpack-merge');
 
 // Plugins
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-/*  2. JavaScript
+/*  JavaScript
     ========================================================================  */
 
 const JavaScript = () => {
   return {
-    test: /\.(js|ts)x?$/,
+    test: /\.js$/,
     include: path.resolve(__dirname, settings.paths.src.base),
     exclude: /node_modules/,
     use: {
@@ -66,7 +66,7 @@ const JavaScript = () => {
   };
 };
 
-/*  3. Images
+/*  Images
     ========================================================================  */
 
 const Images = () => {
@@ -78,7 +78,7 @@ const Images = () => {
       {
         loader: 'file-loader',
         options: {
-          name: `${settings.paths.dist.images}[name].[ext]`
+          name: 'images/[name].[ext]'
         }
       },
       {
@@ -107,7 +107,7 @@ const Images = () => {
   };
 };
 
-/*  4. Fonts
+/*  Fonts
     ========================================================================  */
 
 const Fonts = () => {
@@ -119,55 +119,33 @@ const Fonts = () => {
       {
         loader: 'file-loader',
         options: {
-          name: `${settings.paths.dist.fonts}[name].[ext]`
+          name: 'fonts/[name].[ext]'
         }
       }
     ]
   };
 };
 
-/*  5. Config Common
+/*  Config Common
     ========================================================================  */
 
 const common = {
+  name: pkg.name,
   entry: settings.entries,
   output: {
     path: path.resolve(__dirname, settings.paths.dist.base),
-    filename: `${settings.paths.dist.js}[name].min.js`
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    filename: 'js/[name].min.js'
   },
   module: {
     rules: [JavaScript(), Images(), Fonts()]
   },
   plugins: [
-    // Clean Webpack Plugin
-    new CleanWebpackPlugin({
-      verbose: true,
-      dry: false
-    }),
-
     // Copy Webpack Plugin
-    new CopyWebpackPlugin(settings.copy),
-
-    // HTML Webpack Plugin - Index
-    new HtmlWebpackPlugin({
-      template: './src/templates/index.html',
-      filename: 'index.html',
-      inject: 'body',
-      minify: {
-        removeComments: 'true',
-        collapseWhitespace: 'true',
-        preserveLineBreaks: 'true',
-        minifyCSS: 'false',
-        minifyJS: 'false'
-      }
-    })
+    new CopyWebpackPlugin(settings.copy)
   ]
 };
 
-/*  6. Module Exports
+/*  Module Exports
     ========================================================================  */
 
 module.exports = merge(common);

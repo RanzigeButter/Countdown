@@ -10,9 +10,5 @@ node_modules/
 
 # Distribution
 dist/
-
-# Dotenv
-*.env
-
-# Miscellaneous
-Thumbs.db
+/index.html
+/robots.txt

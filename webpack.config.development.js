@@ -5,16 +5,18 @@
 /**
  * Additional configuration that is only used for development.
  *
+ *
  * Table of Contents:
- * 1. Dependencies
- * 2. Development Server
- * 3. JavaScript Linter
- * 4. SCSS
- * 5. Config Development
- * 6. Module Exports
+ *
+ * Dependencies
+ * Development Server
+ * JavaScript Linter
+ * SCSS
+ * Config Development
+ * Module Exports
  */
 
-/*  1. Dependencies
+/*  Dependencies
     ========================================================================  */
 
 // Configs
@@ -30,8 +32,9 @@ const merge = require('webpack-merge');
 // Plugins
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const StylelintBareWebpackPlugin = require('stylelint-bare-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-/*  2. Development Server
+/*  Development Server
     ========================================================================  */
 
 const devServer = () => {
@@ -40,7 +43,7 @@ const devServer = () => {
     host: settings.developmentServer.host(),
     port: settings.developmentServer.port(),
     https: !!parseInt(settings.developmentServer.https(), 10),
-    contentBase: path.resolve(__dirname, `${settings.paths.src.base}templates`),
+    contentBase: path.resolve(__dirname, settings.paths.templates),
     watchContentBase: true,
     watchOptions: {
       poll: settings.developmentServer.poll(),
@@ -50,11 +53,14 @@ const devServer = () => {
     hot: true,
     hotOnly: true,
     quiet: true,
-    disableHostCheck: true
+    disableHostCheck: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   };
 };
 
-/*  3. JavaScript Linter
+/*  JavaScript Linter
     ========================================================================  */
 
 const JavaScriptLinter = () => {
@@ -67,7 +73,7 @@ const JavaScriptLinter = () => {
   };
 };
 
-/*  4. SCSS
+/*  SCSS
     ========================================================================  */
 
 const SCSS = () => {
@@ -117,7 +123,7 @@ const SCSS = () => {
   };
 };
 
-/*  5. Config Development
+/*  Config Development
     ========================================================================  */
 
 const development = {
@@ -130,7 +136,7 @@ const development = {
     rules: [JavaScriptLinter(), SCSS()]
   },
   plugins: [
-    // Specify Environment
+    // Environment
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     }),
@@ -150,11 +156,25 @@ const development = {
     // Stylelint Bare Webpack Plugin
     new StylelintBareWebpackPlugin({
       files: '**/*.s?(a|c)ss'
+    }),
+
+    // HTML Webpack Plugin - Index
+    new HtmlWebpackPlugin({
+      template: './src/templates/index.html',
+      filename: 'index.html',
+      inject: 'body',
+      minify: {
+        removeComments: 'true',
+        collapseWhitespace: 'true',
+        preserveLineBreaks: 'true',
+        minifyCSS: 'false',
+        minifyJS: 'false'
+      }
     })
   ]
 };
 
-/*  6. Module Exports
+/*  Module Exports
     ========================================================================  */
 
 module.exports = merge(common, development);

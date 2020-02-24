@@ -5,68 +5,69 @@
 /**
  * Settings for Webpack.
  *
+ *
  * Table of Contents:
- * 1. URLs
- * 2. Paths
- * 3. Entries
- * 4. Copy
- * 5. Development Server
+ *
+ * General
+ * URLs
+ * Paths
+ * Entries
+ * Copy
+ * Development Server
  */
 
 module.exports = {
-  /*  1. URLs
+  /*  General
+      ======================================================================  */
+
+  name: 'projects.timschneider.xyz/countdown/',
+
+  /*  URLs
       ======================================================================  */
 
   urls: {
-    live: 'https://projects.timschneider.xyz/countdown/'
+    live: 'https://projects.timschneider.xyz/countdown/',
+    puplicPath: 'dist/'
   },
 
-  /*  2. Paths
+  /*  Paths
       ======================================================================  */
 
   paths: {
     src: {
-      base: './src/',
-      assets: './src/assets/',
-      css: './src/assets/css/',
-      js: './src/assets/js/',
-      images: './src/assets/images/',
-      fonts: './src/assets/fonts/'
+      base: './src/'
     },
     dist: {
       base: './dist/',
-      assets: 'assets/',
-      css: 'assets/css/',
-      js: 'assets/js/',
-      images: 'assets/images/',
-      fonts: 'assets/fonts/'
-    }
+      clean: ['**/*']
+    },
+    templates: './src/templates/'
   },
 
-  /*  3. Entries
+  /*  Entries
       ======================================================================  */
 
   entries: {
-    ranzigebutter: ['./src/assets/js/main.js', './src/assets/css/main.scss']
+    app: ['./src/assets/js/main.js', './src/assets/css/main.scss']
   },
 
-  /*  4. Copy
+  /*  Copy
       ======================================================================  */
 
   copy: [
     // System
     {
       from: './src/system',
-      to: '../dist'
+      to: '../'
     },
     // Favicons
     {
       from: './src/assets/images/favicons',
-      to: './assets/images/favicons'
+      to: './images/favicons'
     }
   ],
 
-  /*  5. Development Server
+  /*  Development Server
       ======================================================================  */
 
   developmentServer: {
@@ -77,10 +78,10 @@ module.exports = {
       return process.env.DEVSERVER_HOST || 'localhost';
     },
     port: () => {
-      process.env.DEVSERVER_PORT || 8080;
+      return process.env.DEVSERVER_PORT || 8080;
     },
     https: () => {
-      process.env.DEVSERVER_HTTPS || false;
+      return process.env.DEVSERVER_HTTPS || false;
     },
     poll: () => {
       return process.env.DEVSERVER_POLL || false;
