@@ -1,18 +1,11 @@
 /*  ========================================================================
-    # Main JavaScript File
+    # Main JavaScript
     ========================================================================  */
-
-/**
- * Import all scripts and initialise them.
- */
 
 import Greetings from './scripts/greetings';
 import Countdown from './scripts/countdown';
 
 const ArrayScripts = [Greetings, Countdown];
-
-/*  Initialise
-    ========================================================================  */
 
 const Scripts = {
   init() {

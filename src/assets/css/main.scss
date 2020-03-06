@@ -1,13 +1,48 @@
 /*  ========================================================================
-    # Main SCSS File
+    # Main SCSS
     ========================================================================  */
 
 // Charset
-@charset "UTF-8";
+@charset 'UTF-8';
 
-// Modules
-@import 'settings';
-@import 'tools';
-@import 'generic';
-@import 'elements';
-@import 'components';
+/*  Settings
+    ========================================================================  */
+
+@import '___settings/settings.fonts';
+@import '___settings/settings.colors';
+@import '___settings/settings.layout';
+@import '___settings/settings.easings';
+
+/*  Tools
+    ========================================================================  */
+
+// Functions
+@import '__tools/tools.function.remove-unit';
+@import '__tools/tools.function.calc-rem';
+
+// Mixins
+@import '__tools/tools.mixin.breakpoints';
+@import '__tools/tools.mixin.fluid-type';
+@import '__tools/tools.mixin.transitions';
+
+/*  Globals
+    ========================================================================  */
+
+/**
+ * Global styles for resetting and elements.
+ */
+
+@import '_globals/globals.resets';
+@import '_globals/globals.generic';
+@import '_globals/globals.typography';
+
+/*  Components
+    ========================================================================  */
+
+/**
+ * Styles for custom components.
+ */
+
+@import 'components/components.wrapper';
+@import 'components/components.countdown';
+@import 'components/components.links';

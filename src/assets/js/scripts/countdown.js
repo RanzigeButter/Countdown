@@ -4,7 +4,7 @@
 
 const Countdown = {
   config: {
-    date: new Date('Feb 28, 2020 00:00:00').getTime(),
+    date: new Date('Feb 28, 2021 00:00:00').getTime(),
     element: {
       container: document.getElementById('countdown'),
       days: document.getElementById('days'),

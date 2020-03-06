@@ -1,0 +1,34 @@
+/*  ========================================================================
+    # Components - Countdown
+    ========================================================================  */
+
+.c-countdown {
+  display: flex;
+  margin: 0 calc-rem(-12px);
+
+  @include breakpoint(small) {
+    margin: 0 calc-rem(-20px);
+  }
+
+  .block {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 0 calc-rem(12px);
+    font-weight: 700;
+
+    @include breakpoint(small) {
+      margin: 0 calc-rem(20px);
+    }
+
+    .digit {
+      @include fluid-type($font-size__digit--min, $font-size__digit--max);
+    }
+
+    span {
+      @include fluid-type($font-size__text--small, $font-size__text);
+      margin: calc-rem(12px) 0 0;
+      color: $color__accent;
+    }
+  }
+}
