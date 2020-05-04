@@ -21,7 +21,7 @@
 
 // Configs
 const pkg = require('./package.json');
-const settings = require('./webpack.config.settings.js');
+const settings = require('./webpack.settings.js');
 
 // Modules
 const path = require('path');
