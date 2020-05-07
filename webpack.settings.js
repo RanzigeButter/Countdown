@@ -1,11 +1,8 @@
 /*  ========================================================================
-    # Webpack Configuration - Settings
+    # Webpack - Settings
     ========================================================================  */
 
 /**
- * Settings for Webpack.
- *
- *
  * Table of Contents:
  *
  * General

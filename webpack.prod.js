@@ -1,9 +1,9 @@
 /*  ========================================================================
-    # Webpack Configuration - Production
+    # Webpack - Production
     ========================================================================  */
 
 /**
- * Additional configuration that is only used for production.
+ * Configuration only used for production.
  *
  *
  * Table of Contents:
@@ -11,7 +11,6 @@
  * Dependencies
  * SCSS
  * Config Production
- * Module Exports
  */
 
 /*  Dependencies
@@ -89,10 +88,31 @@ const SCSS = () => {
 const production = {
   mode: 'production',
   output: {
-    publicPath: settings.urls.live + settings.urls.puplicPath
+    publicPath: settings.urls.live + settings.urls.puplicPath,
+    filename: 'js/[name].min.[contenthash].js'
   },
   module: {
     rules: [SCSS()]
+  },
+  optimization: {
+    minimizer: [
+      // Terser Webpack Plugin
+      new TerserWebpackPlugin({
+        cache: true,
+        parallel: true,
+        extractComments: false,
+        terserOptions: {
+          keep_fnames: false,
+          keep_classnames: true,
+          mangle: true,
+          ie8: false,
+          safari10: false,
+          output: {
+            comments: false
+          }
+        }
+      })
+    ]
   },
   plugins: [
     // Environment
@@ -107,28 +127,10 @@ const production = {
       dry: false
     }),
 
-    // Terser Webpack Plugin
-    new TerserWebpackPlugin({
-      cache: true,
-      parallel: true,
-      extractComments: false,
-      terserOptions: {
-        keep_fnames: false,
-        keep_classnames: true,
-        mangle: true,
-        ie8: false,
-        safari10: false,
-        output: {
-          beautify: false,
-          comments: false
-        }
-      }
-    }),
-
     // Mini CSS Extract Plugin
     new MiniCssExtractPlugin({
       path: path.resolve(__dirname, settings.paths.dist.base),
-      filename: 'css/[name].min.css'
+      filename: 'css/[name].min.[contenthash].css'
     }),
 
     // HTML Webpack Plugin - Index

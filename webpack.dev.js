@@ -1,9 +1,9 @@
 /*  ========================================================================
-    # Webpack Configuration - Development
+    # Webpack - Development
     ========================================================================  */
 
 /**
- * Additional configuration that is only used for development.
+ * Configuration only used for development.
  *
  *
  * Table of Contents:
@@ -13,7 +13,6 @@
  * JavaScript Linter
  * SCSS
  * Config Development
- * Module Exports
  */
 
 /*  Dependencies
@@ -130,7 +129,8 @@ const development = {
   mode: 'development',
   devServer: devServer(),
   output: {
-    publicPath: settings.developmentServer.public() + '/'
+    publicPath: settings.developmentServer.public() + '/',
+    filename: 'js/[name].min.[hash].js'
   },
   module: {
     rules: [JavaScriptLinter(), SCSS()]
@@ -164,7 +164,7 @@ const development = {
       filename: 'index.html',
       inject: 'body',
       minify: {
-        removeComments: 'true',
+        removeComments: 'false',
         collapseWhitespace: 'true',
         preserveLineBreaks: 'true',
         minifyCSS: 'false',
@@ -173,8 +173,5 @@ const development = {
     })
   ]
 };
-
-/*  Module Exports
-    ========================================================================  */
 
 module.exports = merge(common, development);
