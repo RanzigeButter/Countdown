@@ -138,7 +138,9 @@ const common = {
   },
   plugins: [
     // Copy Webpack Plugin
-    new CopyWebpackPlugin(settings.copy)
+    new CopyWebpackPlugin({
+      patterns: settings.copy
+    })
   ]
 };
 
