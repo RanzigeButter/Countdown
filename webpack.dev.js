@@ -104,15 +104,16 @@ const SCSS = () => {
       {
         loader: 'postcss-loader',
         options: {
-          ident: 'postcss',
-          plugins: [
-            /* eslint-disable */
-            require('autoprefixer')({
-              env: 'modern',
-              cascade: false
-            })
-            /* eslint-enable */
-          ]
+          postcssOptions: {
+            plugins: [
+              /* eslint-disable */
+              require('autoprefixer')({
+                env: 'legacy',
+                cascade: false
+              })
+              /* eslint-enable */
+            ]
+          }
         }
       },
       {
