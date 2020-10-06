@@ -8,22 +8,22 @@
 /*  Settings
     ========================================================================  */
 
-@import '___settings/settings.fonts';
-@import '___settings/settings.colors';
-@import '___settings/settings.layout';
-@import '___settings/settings.easings';
+@import '01-settings/settings.fonts';
+@import '01-settings/settings.colors';
+@import '01-settings/settings.layout';
+@import '01-settings/settings.easings';
 
 /*  Tools
     ========================================================================  */
 
 // Functions
-@import '__tools/tools.function.remove-unit';
-@import '__tools/tools.function.calc-rem';
+@import '02-tools/tools.function.remove-unit';
+@import '02-tools/tools.function.calc-rem';
 
 // Mixins
-@import '__tools/tools.mixin.breakpoints';
-@import '__tools/tools.mixin.fluid-type';
-@import '__tools/tools.mixin.transitions';
+@import '02-tools/tools.mixin.breakpoints';
+@import '02-tools/tools.mixin.fluid-type';
+@import '02-tools/tools.mixin.transitions';
 
 /*  Globals
     ========================================================================  */
@@ -32,9 +32,9 @@
  * Global styles for resetting and elements.
  */
 
-@import '_globals/globals.resets';
-@import '_globals/globals.generic';
-@import '_globals/globals.typography';
+@import '03-globals/globals.resets';
+@import '03-globals/globals.generic';
+@import '03-globals/globals.typography';
 
 /*  Components
     ========================================================================  */
@@ -43,6 +43,6 @@
  * Styles for custom components.
  */
 
-@import 'components/components.wrapper';
-@import 'components/components.countdown';
-@import 'components/components.links';
+@import '04-components/components.wrapper';
+@import '04-components/components.countdown';
+@import '04-components/components.links';
