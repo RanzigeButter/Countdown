@@ -17,13 +17,11 @@
     ========================================================================  */
 
 // Configs
-// const pkg = require('./package.json');
 const settings = require('./webpack.settings.js');
 const common = require('./webpack.common.js');
 
 // Modules
 const path = require('path');
-const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 
 // Plugins
@@ -99,7 +97,6 @@ const production = {
     minimizer: [
       // Terser Webpack Plugin
       new TerserWebpackPlugin({
-        cache: true,
         parallel: true,
         extractComments: false,
         terserOptions: {
@@ -116,11 +113,6 @@ const production = {
     ]
   },
   plugins: [
-    // Environment
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-
     // Clean Webpack Plugin
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: settings.paths.dist.clean,
@@ -149,8 +141,5 @@ const production = {
     })
   ]
 };
-
-/*  Module Exports
-    ========================================================================  */
 
 module.exports = merge(common, production);

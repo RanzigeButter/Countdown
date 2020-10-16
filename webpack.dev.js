@@ -19,7 +19,6 @@
     ========================================================================  */
 
 // Configs
-// const pkg = require('./package.json');
 const settings = require('./webpack.settings.js');
 const common = require('./webpack.common.js');
 
@@ -137,11 +136,6 @@ const development = {
     rules: [JavaScriptLinter(), SCSS()]
   },
   plugins: [
-    // Environment
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
-    }),
-
     // Hot Module Replacement Plugin
     new webpack.HotModuleReplacementPlugin(),
 
