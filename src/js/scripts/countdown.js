@@ -14,6 +14,9 @@ const Countdown = {
     }
   },
 
+  // Calculate Values
+  // ===========================================================================
+
   calcValues(distance) {
     return {
       days: Math.floor(distance / (1000 * 60 * 60 * 24)),
@@ -23,12 +26,18 @@ const Countdown = {
     };
   },
 
+  // Display Values
+  // ===========================================================================
+
   dispValues(days, hours, minutes, seconds) {
     this.config.element.days.innerHTML = days < 10 ? '0' + days : days;
     this.config.element.hours.innerHTML = hours < 10 ? '0' + hours : hours;
     this.config.element.minutes.innerHTML = minutes < 10 ? '0' + minutes : minutes;
     this.config.element.seconds.innerHTML = seconds < 10 ? '0' + seconds : seconds;
   },
+
+  // Expired
+  // ===========================================================================
 
   expired() {
     /* eslint-disable */
@@ -38,6 +47,9 @@ const Countdown = {
     }, 3000);
     /* eslint-enable */
   },
+
+  // Init
+  // ===========================================================================
 
   init() {
     const x = setInterval(() => {

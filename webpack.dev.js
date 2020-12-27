@@ -15,8 +15,8 @@
  * Config Development
  */
 
-/*  Dependencies
-    ========================================================================  */
+// Dependencies
+// =============================================================================
 
 // Configs
 const settings = require('./webpack.settings.js');
@@ -32,8 +32,8 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const StylelintBareWebpackPlugin = require('stylelint-bare-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-/*  Development Server
-    ========================================================================  */
+// Development Server
+// =============================================================================
 
 const devServer = () => {
   return {
@@ -58,8 +58,8 @@ const devServer = () => {
   };
 };
 
-/*  JavaScript Linter
-    ========================================================================  */
+// JavaScript Linter
+// =============================================================================
 
 const JavaScriptLinter = () => {
   return {
@@ -71,8 +71,8 @@ const JavaScriptLinter = () => {
   };
 };
 
-/*  SCSS
-    ========================================================================  */
+// SCSS
+// =============================================================================
 
 const SCSS = () => {
   return {
@@ -107,7 +107,7 @@ const SCSS = () => {
             plugins: [
               /* eslint-disable */
               require('autoprefixer')({
-                env: 'legacy',
+                env: 'modern',
                 cascade: false
               })
               /* eslint-enable */
@@ -122,8 +122,8 @@ const SCSS = () => {
   };
 };
 
-/*  Config Development
-    ========================================================================  */
+// Config Development
+// =============================================================================
 
 const development = {
   mode: 'development',

@@ -13,8 +13,8 @@
  * Config Production
  */
 
-/*  Dependencies
-    ========================================================================  */
+// Dependencies
+// =============================================================================
 
 // Configs
 const settings = require('./webpack.settings.js');
@@ -30,8 +30,8 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-/*  SCSS
-    ========================================================================  */
+// SCSS
+// =============================================================================
 
 const SCSS = () => {
   return {
@@ -66,7 +66,7 @@ const SCSS = () => {
             plugins: [
               /* eslint-disable */
               require('autoprefixer')({
-                env: 'legacy',
+                env: 'modern',
                 cascade: false
               })
               /* eslint-enable */
@@ -81,8 +81,8 @@ const SCSS = () => {
   };
 };
 
-/*  Config Production
-    ========================================================================  */
+// Config Production
+// =============================================================================
 
 const production = {
   mode: 'production',
@@ -97,15 +97,11 @@ const production = {
     minimizer: [
       // Terser Webpack Plugin
       new TerserWebpackPlugin({
-        parallel: true,
         extractComments: false,
         terserOptions: {
           keep_fnames: false,
           keep_classnames: true,
-          mangle: true,
-          ie8: false,
-          safari10: false,
-          output: {
+          format: {
             comments: false
           }
         }
@@ -116,13 +112,12 @@ const production = {
     // Clean Webpack Plugin
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: settings.paths.dist.clean,
-      verbose: true,
+      verbose: false,
       dry: false
     }),
 
     // Mini CSS Extract Plugin
     new MiniCssExtractPlugin({
-      path: path.resolve(__dirname, settings.paths.dist.base),
       filename: 'css/[name].min.[contenthash].css'
     }),
 

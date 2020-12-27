@@ -5,16 +5,16 @@
 // Charset
 @charset 'UTF-8';
 
-/*  Settings
-    ========================================================================  */
+// Settings - Variables for fonts, colors, breakpoints, etc.
+// =============================================================================
 
 @import '01-settings/settings.fonts';
 @import '01-settings/settings.colors';
 @import '01-settings/settings.layout';
 @import '01-settings/settings.easings';
 
-/*  Tools
-    ========================================================================  */
+// Tools - Functions, Mixins and Keyframes.
+// =============================================================================
 
 // Functions
 @import '02-tools/tools.function.remove-unit';
@@ -25,23 +25,15 @@
 @import '02-tools/tools.mixin.fluid-type';
 @import '02-tools/tools.mixin.transitions';
 
-/*  Globals
-    ========================================================================  */
-
-/**
- * Global styles for resetting and elements.
- */
+// Globals - Styles for resetting, elements and the grid.
+// =============================================================================
 
 @import '03-globals/globals.resets';
 @import '03-globals/globals.generic';
 @import '03-globals/globals.typography';
 
-/*  Components
-    ========================================================================  */
-
-/**
- * Styles for custom components.
- */
+// Components
+// =============================================================================
 
 @import '04-components/components.wrapper';
 @import '04-components/components.countdown';
