@@ -10,7 +10,6 @@
  *
  * Dependencies
  * Development Server
- * JavaScript Linter
  * SCSS
  * Config Development
  */
@@ -29,7 +28,6 @@ const { merge } = require('webpack-merge');
 
 // Plugins
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const StylelintBareWebpackPlugin = require('stylelint-bare-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Development Server
@@ -55,19 +53,6 @@ const devServer = () => {
     headers: {
       'Access-Control-Allow-Origin': '*'
     }
-  };
-};
-
-// JavaScript Linter
-// =============================================================================
-
-const JavaScriptLinter = () => {
-  return {
-    test: /\.(js|vue)$/,
-    include: path.resolve(__dirname, settings.paths.src.base),
-    exclude: /node_modules/,
-    enforce: 'pre',
-    use: ['eslint-loader']
   };
 };
 
@@ -133,7 +118,7 @@ const development = {
     filename: 'js/[name].min.[hash].js'
   },
   module: {
-    rules: [JavaScriptLinter(), SCSS()]
+    rules: [SCSS()]
   },
   plugins: [
     // Hot Module Replacement Plugin
@@ -146,11 +131,6 @@ const development = {
         notes: ['Hot reloading is enabled.']
       },
       clearConsole: true
-    }),
-
-    // Stylelint Bare Webpack Plugin
-    new StylelintBareWebpackPlugin({
-      files: '**/*.s?(a|c)ss'
     }),
 
     // HTML Webpack Plugin - Index
