@@ -2,17 +2,6 @@
     # Webpack - Settings
     ========================================================================  */
 
-/**
- * Table of Contents:
- *
- * General
- * URLs
- * Paths
- * Entries
- * Copy
- * Development Server
- */
-
 // DotEnv
 require('dotenv').config();
 

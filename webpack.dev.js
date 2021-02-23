@@ -4,18 +4,7 @@
 
 /**
  * Configuration only used for development.
- *
- *
- * Table of Contents:
- *
- * Dependencies
- * Development Server
- * SCSS
- * Config Development
  */
-
-// Dependencies
-// =============================================================================
 
 // Configs
 const settings = require('./webpack.settings.js');
@@ -62,7 +51,6 @@ const devServer = () => {
 const SCSS = () => {
   return {
     test: /\.scss$/,
-    include: path.resolve(__dirname, settings.paths.src.base),
     exclude: /node_modules/,
     use: [
       {

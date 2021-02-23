@@ -4,17 +4,7 @@
 
 /**
  * Configuration only used for production.
- *
- *
- * Table of Contents:
- *
- * Dependencies
- * SCSS
- * Config Production
  */
-
-// Dependencies
-// =============================================================================
 
 // Configs
 const settings = require('./webpack.settings.js');
@@ -36,7 +26,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SCSS = () => {
   return {
     test: /\.scss$/,
-    include: path.resolve(__dirname, settings.paths.src.base),
     exclude: /node_modules/,
     use: [
       {

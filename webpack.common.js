@@ -4,19 +4,7 @@
 
 /**
  * General used configuration.
- *
- *
- * Table of Contents:
- *
- * Dependencies
- * JavaScript
- * Images
- * Fonts
- * Config Common
  */
-
-// Dependencies
-// =============================================================================
 
 // Configs
 const pkg = require('./package.json');
@@ -34,7 +22,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const JavaScript = () => {
   return {
     test: /\.js$/,
-    include: path.resolve(__dirname, settings.paths.src.base),
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
@@ -67,15 +54,12 @@ const JavaScript = () => {
 const Images = () => {
   return {
     test: /\.(jpe?g|png|gif|svg|webp)$/,
-    include: path.resolve(__dirname, settings.paths.src.base),
     exclude: /node_modules/,
+    type: 'asset/resource',
+    generator: {
+      filename: 'images/[name][ext]'
+    },
     use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: 'images/[name].[ext]'
-        }
-      },
       {
         loader: 'image-webpack-loader',
         options: {
@@ -108,16 +92,11 @@ const Images = () => {
 const Fonts = () => {
   return {
     test: /\.(woff2|woff|eot|otf|ttf)$/,
-    include: path.resolve(__dirname, settings.paths.src.base),
     exclude: /node_modules/,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: 'fonts/[name].[ext]'
-        }
-      }
-    ]
+    type: 'asset/resource',
+    generator: {
+      filename: 'fonts/[name][ext]'
+    }
   };
 };
 
